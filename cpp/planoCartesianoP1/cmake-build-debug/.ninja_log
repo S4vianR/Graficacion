@@ -1,0 +1,20 @@
+# ninja log v6
+106	113	1725927209975977352	CMakeFiles/planoCartesianoP1.dir/main.cpp.o.modmap	fc2b6365600bd64f
+113	297	1725927209985977351	CMakeFiles/planoCartesianoP1.dir/main.cpp.o	cdacc39063f0de2d
+106	113	1725927209975977352	/home/reuben/CLionProjects/planoCartesianoP1/cmake-build-debug/CMakeFiles/planoCartesianoP1.dir/CXXModules.json	fc2b6365600bd64f
+106	113	1725927209975977352	CMakeFiles/planoCartesianoP1.dir/CXX.dd	fc2b6365600bd64f
+5	106	1725927209875977355	CMakeFiles/planoCartesianoP1.dir/main.cpp.o.ddi	fc1fe00e493dcbca
+0	21	1725665821174664584	build.ninja	273cd1a7750a94b2
+297	549	1725927210169310679	planoCartesianoP1	5ef54e27e81906e2
+1	71	1725927226499310143	CMakeFiles/planoCartesianoP1.dir/main.cpp.o.ddi	fc1fe00e493dcbca
+71	75	1725927226569310140	CMakeFiles/planoCartesianoP1.dir/CXX.dd	fc2b6365600bd64f
+71	75	1725927226569310140	/home/reuben/CLionProjects/planoCartesianoP1/cmake-build-debug/CMakeFiles/planoCartesianoP1.dir/CXXModules.json	fc2b6365600bd64f
+71	75	1725927226569310140	CMakeFiles/planoCartesianoP1.dir/main.cpp.o.modmap	fc2b6365600bd64f
+76	261	1725927226572643474	CMakeFiles/planoCartesianoP1.dir/main.cpp.o	cdacc39063f0de2d
+261	364	1725927226759310134	planoCartesianoP1	5ef54e27e81906e2
+4	102	1725987481064328888	CMakeFiles/planoCartesianoP1.dir/main.cpp.o.ddi	fc1fe00e493dcbca
+102	110	1725987481164329980	CMakeFiles/planoCartesianoP1.dir/CXX.dd	fc2b6365600bd64f
+102	110	1725987481164329980	/home/reuben/CLionProjects/planoCartesianoP1/cmake-build-debug/CMakeFiles/planoCartesianoP1.dir/CXXModules.json	fc2b6365600bd64f
+102	110	1725987481164329980	CMakeFiles/planoCartesianoP1.dir/main.cpp.o.modmap	fc2b6365600bd64f
+110	292	1725987481170996720	CMakeFiles/planoCartesianoP1.dir/main.cpp.o	cdacc39063f0de2d
+292	390	1725987481350998687	planoCartesianoP1	5ef54e27e81906e2

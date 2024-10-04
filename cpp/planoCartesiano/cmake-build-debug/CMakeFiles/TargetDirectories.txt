@@ -1,0 +1,3 @@
+/home/reuben/CLionProjects/planoCartesiano/cmake-build-debug/CMakeFiles/planoCartesiano.dir
+/home/reuben/CLionProjects/planoCartesiano/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/reuben/CLionProjects/planoCartesiano/cmake-build-debug/CMakeFiles/rebuild_cache.dir

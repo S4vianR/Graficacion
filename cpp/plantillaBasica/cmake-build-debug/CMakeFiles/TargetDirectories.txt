@@ -1,0 +1,3 @@
+/home/reuben/CLionProjects/plantillaBasica/cmake-build-debug/CMakeFiles/plantillaBasica.dir
+/home/reuben/CLionProjects/plantillaBasica/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/reuben/CLionProjects/plantillaBasica/cmake-build-debug/CMakeFiles/rebuild_cache.dir

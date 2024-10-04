@@ -1,0 +1,3 @@
+/home/reuben/CLionProjects/curvasBezier/cmake-build-debug/CMakeFiles/curvasBezier.dir
+/home/reuben/CLionProjects/curvasBezier/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/reuben/CLionProjects/curvasBezier/cmake-build-debug/CMakeFiles/rebuild_cache.dir

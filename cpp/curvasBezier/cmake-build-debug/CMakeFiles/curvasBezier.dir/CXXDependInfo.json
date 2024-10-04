@@ -1,0 +1,18 @@
+{
+	"bmi-installation" : null,
+	"compiler-frontend-variant" : "GNU",
+	"compiler-id" : "GNU",
+	"compiler-simulate-id" : "",
+	"config" : "Debug",
+	"cxx-modules" : {},
+	"dir-cur-bld" : "/home/reuben/CLionProjects/curvasBezier/cmake-build-debug",
+	"dir-cur-src" : "/home/reuben/CLionProjects/curvasBezier",
+	"dir-top-bld" : "/home/reuben/CLionProjects/curvasBezier/cmake-build-debug",
+	"dir-top-src" : "/home/reuben/CLionProjects/curvasBezier",
+	"exports" : [],
+	"forward-modules-from-target-dirs" : [],
+	"include-dirs" : [],
+	"language" : "CXX",
+	"linked-target-dirs" : [],
+	"module-dir" : "/home/reuben/CLionProjects/curvasBezier/cmake-build-debug/CMakeFiles/curvasBezier.dir"
+}
