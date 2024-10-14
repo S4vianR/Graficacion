@@ -9,7 +9,7 @@ import org.shaderTech.Color;
 public class PlantillaBasica {
 
     // Variables globales
-    private static int anchopantalla = 600;
+    private static int anchopantalla = 1200;
     private static int altopantalla = 800;
 
     // Inicializar los colores

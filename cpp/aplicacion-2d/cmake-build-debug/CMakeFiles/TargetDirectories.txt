@@ -1,3 +1,3 @@
-C:/Users/reube/Code/Graficacion/cpp/aplicacion-2d/cmake-build-debug/CMakeFiles/aplicacion_2d.dir
-C:/Users/reube/Code/Graficacion/cpp/aplicacion-2d/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/reube/Code/Graficacion/cpp/aplicacion-2d/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/reuben/Dev/Graficacion/cpp/aplicacion-2d/cmake-build-debug/CMakeFiles/aplicacion_2d.dir
+/home/reuben/Dev/Graficacion/cpp/aplicacion-2d/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/reuben/Dev/Graficacion/cpp/aplicacion-2d/cmake-build-debug/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,1 @@
+/usr/bin/c++ -g CMakeFiles/aplicacion_2d.dir/main.cpp.o -o aplicacion_2d  /usr/lib/libglut.so /usr/lib/libXmu.so /usr/lib/libXi.so -lGLU -lGL
