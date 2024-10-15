@@ -1,8 +1,8 @@
 import pygame
+from PyOpenGLtoolbox import *
 from OpenGL.GL import *
 from OpenGL.GLU import *
 from OpenGL.GLUT import *
-from pygame.locals import *
 
 # Dimensiones de la pantalla 1400x1050
 anchopantalla = 1200
@@ -55,6 +55,62 @@ gris = Color(0.5, 0.5, 0.5)
 grisClaro = Color(0.75, 0.75, 0.75)
 blanco = Color(1.0, 1.0, 1.0)
 negro = Color(0.0, 0.0, 0.0)
+naranjaOscuro = Color(0.5450, 0.2509, 0.0)
+cafeOscuro = Color(0.3607, 0.2509, 0.05)
+
+
+class Cubo:
+    def __init__(self, lado):
+        self.lado = lado
+
+    def get_lado(self):
+        return self.lado
+
+    def dibujarCubo(self, lado):
+        glBegin(GL_QUADS)
+        # Cara frontal de color amarillo y escribir algo en la cara frontal
+        glColor3f(amarillo.get_r(), amarillo.get_g(), amarillo.get_b())
+        glVertex3f(-lado, -lado, lado)
+        glVertex3f(lado, -lado, lado)
+        glVertex3f(lado, lado, lado)
+        glVertex3f(-lado, lado, lado)
+
+        # Cara posterior de color magenta
+        glColor3f(magenta.get_r(), magenta.get_g(), magenta.get_b())
+        glVertex3f(-lado, -lado, -lado)
+        glVertex3f(-lado, lado, -lado)
+        glVertex3f(lado, lado, -lado)
+        glVertex3f(lado, -lado, -lado)
+
+        # Cara superior de color cyan
+        glColor3f(cyan.get_r(), cyan.get_g(), cyan.get_b())
+        glVertex3f(-lado, lado, lado)
+        glVertex3f(-lado, lado, -lado)
+        glVertex3f(lado, lado, -lado)
+        glVertex3f(lado, lado, lado)
+
+        # Cara inferior de color verde
+        glColor3f(verde.get_r(), verde.get_g(), verde.get_b())
+        glVertex3f(-lado, -lado, lado)
+        glVertex3f(lado, -lado, lado)
+        glVertex3f(lado, -lado, -lado)
+        glVertex3f(-lado, -lado, -lado)
+
+        # Cara lateral derecha de color rojo
+        glColor3f(rojo.get_r(), rojo.get_g(), rojo.get_b())
+        glVertex3f(lado, -lado, lado)
+        glVertex3f(lado, lado, lado)
+        glVertex3f(lado, lado, -lado)
+        glVertex3f(lado, -lado, -lado)
+
+        # Cara lateral izquierda de color azul
+        glColor3f(azul.get_r(), azul.get_g(), azul.get_b())
+        glVertex3f(-lado, -lado, lado)
+        glVertex3f(-lado, lado, lado)
+        glVertex3f(-lado, lado, -lado)
+        glVertex3f(-lado, -lado, -lado)
+
+        glEnd()
 
 
 class PrismaRectangular:
@@ -74,47 +130,36 @@ class PrismaRectangular:
 
     def dibujarCubo(self, alto, ancho, largo):
         glBegin(GL_QUADS)
-        # Cara frontal de color amarillo y escribir algo en la cara frontal
-        glColor3f(amarillo.get_r(), amarillo.get_g(), amarillo.get_b())
-        glVertex3f(-largo, -alto, ancho)
-        glVertex3f(largo, -alto, ancho)
-        glVertex3f(largo, alto, ancho)
-        glVertex3f(-largo, alto, ancho)
 
-        # Cara posterior de color magenta
-        #glColor3f(magenta.get_r(), magenta.get_g(), magenta.get_b())
-        #glVertex3f(-lado, -lado, -lado)
-        #glVertex3f(-lado, lado, -lado)
-        #glVertex3f(lado, lado, -lado)
-        #glVertex3f(lado, -lado, -lado)
+        glVertex3f(-ancho, -alto, largo)
+        glVertex3f(ancho, -alto, largo)
+        glVertex3f(ancho, alto, largo)
+        glVertex3f(-ancho, alto, largo)
 
-        # Cara superior de color cyan
-        #glColor3f(cyan.get_r(), cyan.get_g(), cyan.get_b())
-        #glVertex3f(-lado, lado, lado)
-        #glVertex3f(-lado, lado, -lado)
-        #glVertex3f(lado, lado, -lado)
-        #glVertex3f(lado, lado, lado)
+        glVertex3f(-ancho, -alto, -largo)
+        glVertex3f(-ancho, alto, -largo)
+        glVertex3f(ancho, alto, -largo)
+        glVertex3f(ancho, -alto, -largo)
 
-        # Cara inferior de color verde
-        #glColor3f(verde.get_r(), verde.get_g(), verde.get_b())
-        #glVertex3f(-lado, -lado, lado)
-        #glVertex3f(lado, -lado, lado)
-        #glVertex3f(lado, -lado, -lado)
-        #glVertex3f(-lado, -lado, -lado)
+        glVertex3f(-ancho, alto, largo)
+        glVertex3f(-ancho, alto, -largo)
+        glVertex3f(ancho, alto, -largo)
+        glVertex3f(ancho, alto, largo)
 
-        # Cara lateral derecha de color rojo
-        #glColor3f(rojo.get_r(), rojo.get_g(), rojo.get_b())
-        #glVertex3f(lado, -lado, lado)
-        #glVertex3f(lado, lado, lado)
-        #glVertex3f(lado, lado, -lado)
-        #glVertex3f(lado, -lado, -lado)
+        glVertex3f(-ancho, -alto, largo)
+        glVertex3f(ancho, -alto, largo)
+        glVertex3f(ancho, -alto, -largo)
+        glVertex3f(-ancho, -alto, -largo)
 
-        # Cara lateral izquierda de color azul
-        #glColor3f(azul.get_r(), azul.get_g(), azul.get_b())
-        #glVertex3f(-lado, -lado, lado)
-        #glVertex3f(-lado, lado, lado)
-        #glVertex3f(-lado, lado, -lado)
-        #glVertex3f(-lado, -lado, -lado)
+        glVertex3f(ancho, -alto, largo)
+        glVertex3f(ancho, alto, largo)
+        glVertex3f(ancho, alto, -largo)
+        glVertex3f(ancho, -alto, -largo)
+
+        glVertex3f(-ancho, -alto, largo)
+        glVertex3f(-ancho, alto, largo)
+        glVertex3f(-ancho, alto, -largo)
+        glVertex3f(-ancho, -alto, -largo)
 
         glEnd()
 
@@ -157,9 +202,12 @@ def mostrar():
     glRotatef(rot_z, 0, 0, 1)
 
     # Dibujar un cubo
-    glColor3f(rojo.get_r(), rojo.get_g(), rojo.get_b())
-    prismaRectangular = PrismaRectangular(0.25, 0.5, 0.5)
-    prismaRectangular.dibujarCubo(prismaRectangular.get_alto(), prismaRectangular.get_ancho(), prismaRectangular.get_largo())
+    edificio = PrismaRectangular(0.5, 0.75, 1.5)
+
+    glColor3f(grisClaro.get_r(), grisClaro.get_g(), grisClaro.get_b())
+    edificio.dibujarCubo(edificio.get_alto(), edificio.get_ancho(),
+                                  edificio.get_largo())
+    puerta = PrismaRectangular(0.35, 0.25, 0.45)
     glFlush()
 
 
