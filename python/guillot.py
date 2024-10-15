@@ -4,10 +4,10 @@ from OpenGL.GL import *
 from OpenGL.GLU import *
 from OpenGL.GLUT import *
 
-# Dimensiones de la pantalla 1400x1050
-anchopantalla = 1200
-altopantalla = 800
-profundidad = 800
+# Dimensiones de la pantalla y profundidad
+anchopantalla = 1440
+altopantalla = 1080
+profundidad = 1080
 
 # Variables para la rotación
 rot_x = 0
@@ -57,6 +57,8 @@ blanco = Color(1.0, 1.0, 1.0)
 negro = Color(0.0, 0.0, 0.0)
 naranjaOscuro = Color(0.5450, 0.2509, 0.0)
 cafeOscuro = Color(0.3607, 0.2509, 0.05)
+boneWhite = Color(0.9764, 0.9647, 0.9333)
+eggShell = Color(0.9411, 0.9176, 0.8392)
 
 
 class Cubo:
@@ -128,40 +130,46 @@ class PrismaRectangular:
     def get_largo(self):
         return self.largo
 
-    def dibujarCubo(self, alto, ancho, largo):
+    def dibujarPrisma(self, alto, ancho, largo):
         glBegin(GL_QUADS)
 
-        glColor3f(grisClaro.get_r(), grisClaro.get_g(), grisClaro.get_b())
+        # Cara frontal
+        #glColor3f(grisClaro.get_r(), grisClaro.get_g(), grisClaro.get_b())
         glVertex3f(-ancho, -alto, largo)
         glVertex3f(ancho, -alto, largo)
         glVertex3f(ancho, alto, largo)
         glVertex3f(-ancho, alto, largo)
 
-        glColor3f(grisClaro.get_r(), grisClaro.get_g(), grisClaro.get_b())
+        # Cara trasera
+        #glColor3f(grisClaro.get_r(), grisClaro.get_g(), grisClaro.get_b())
         glVertex3f(-ancho, -alto, -largo)
         glVertex3f(-ancho, alto, -largo)
         glVertex3f(ancho, alto, -largo)
         glVertex3f(ancho, -alto, -largo)
 
-        glColor3f(gris.get_r(), gris.get_g(), gris.get_b())
+        # Cara superior
+        # glColor3f(gris.get_r(), gris.get_g(), gris.get_b())
         glVertex3f(-ancho, alto, largo)
         glVertex3f(-ancho, alto, -largo)
         glVertex3f(ancho, alto, -largo)
         glVertex3f(ancho, alto, largo)
 
-        glColor3f(gris.get_r(), gris.get_g(), gris.get_b())
+        # Cara inferior
+        # glColor3f(gris.get_r(), gris.get_g(), gris.get_b())
         glVertex3f(-ancho, -alto, largo)
         glVertex3f(ancho, -alto, largo)
         glVertex3f(ancho, -alto, -largo)
         glVertex3f(-ancho, -alto, -largo)
 
-        glColor3f(naranjaOscuro.get_r(), naranjaOscuro.get_g(), naranjaOscuro.get_b())
+        # Cara lateral izquierda
+        # glColor3f(naranjaOscuro.get_r(), naranjaOscuro.get_g(), naranjaOscuro.get_b())
         glVertex3f(ancho, -alto, largo)
         glVertex3f(ancho, alto, largo)
         glVertex3f(ancho, alto, -largo)
         glVertex3f(ancho, -alto, -largo)
 
-        glColor3f(naranjaOscuro.get_r(), naranjaOscuro.get_g(), naranjaOscuro.get_b())
+        # Cara lateral derecha
+        # glColor3f(naranjaOscuro.get_r(), naranjaOscuro.get_g(), naranjaOscuro.get_b())
         glVertex3f(-ancho, -alto, largo)
         glVertex3f(-ancho, alto, largo)
         glVertex3f(-ancho, alto, -largo)
@@ -198,38 +206,51 @@ def mostrar():
     glLoadIdentity()
     glTranslatef(0, 0, -5)
 
-    # Dibujar el plano cartesiano
-    glColor3f(azul.get_r(), azul.get_g(), azul.get_b())
-    # planoCartesiano()
-
-    # Rotar el cubo
+    # Rotar el edificio
     glRotatef(rot_x, 1, 0, 0)
     glRotatef(rot_y, 0, 1, 0)
     glRotatef(rot_z, 0, 0, 1)
 
-    # Dibujar un edificio
+    #######################
+    # Dibujar un edificio #
+    #######################
     edificio = PrismaRectangular(0.5, 0.75, 1.5)
-    edificio.dibujarCubo(edificio.get_alto(), edificio.get_ancho(), edificio.get_largo())
+    glColor3f(boneWhite.get_r(), boneWhite.get_g(), boneWhite.get_b())
+    edificio.dibujarPrisma(edificio.get_alto(), edificio.get_ancho(), edificio.get_largo())
 
-    # Dibujar la estructura frontal para el edificio que incluye la puerta
+    #################################
+    # Dibujar el techo del edificio #
+    #################################
     glPushMatrix()
-    # Movimiento de la estructura frontal
-    glTranslatef(0.0, -0.15, 1.5)
-    # glColor3f(rojo.get_r(), rojo.get_g(), rojo.get_b())
-    entrada = PrismaRectangular(0.35, 0.35, 0.45)
-    entrada.dibujarCubo(entrada.get_alto(), entrada.get_ancho(), entrada.get_largo())
+    # Movimiento del techo
+    glTranslatef(0.0, 0.5, 0.0)
+    glColor3f(eggShell.get_r(), eggShell.get_g(), eggShell.get_b())
+    techo = PrismaRectangular(0.05, 0.90, 1.8)
+    techo.dibujarPrisma(techo.get_alto(), techo.get_ancho(), techo.get_largo())
     glPopMatrix()
 
-    # Dibujar una puerta
+    ########################################################################
+    # Dibujar la estructura frontal para el edificio que incluye la puerta #
+    ########################################################################
+    glPushMatrix()
+    # Movimiento de la estructura frontal
+    glTranslatef(0.0, -0.14, 1.5)
+    glColor3f(rojo.get_r(), rojo.get_g(), rojo.get_b())
+    entrada = PrismaRectangular(0.35, 0.35, 0.45)
+    entrada.dibujarPrisma(entrada.get_alto(), entrada.get_ancho(), entrada.get_largo())
+    glPopMatrix()
+
+    ######################
+    # Dibujar una puerta #
+    ######################
     glPushMatrix()
     # Rotar la puerta 90 grados en el eje Y
     glRotatef(-90, 0, 1, 0)
-
     # Mover la puerta a la posición correcta
-    glTranslatef(1.75, -0.25, 0.5)
-    # glColor3f(rojo.get_r(), rojo.get_g(), rojo.get_b())
+    glTranslatef(1.72, -0.24, 0.40)
+    glColor3f(rojo.get_r(), rojo.get_g(), rojo.get_b())
     puerta = PrismaRectangular(0.25, 0.15, 0.05)
-    puerta.dibujarCubo(puerta.get_alto(), puerta.get_ancho(), puerta.get_largo())
+    puerta.dibujarPrisma(puerta.get_alto(), puerta.get_ancho(), puerta.get_largo())
     glPopMatrix()
 
     glFlush()
@@ -244,8 +265,9 @@ def inicializacion():
 
 
 if __name__ == '__main__':
-    glutInit()  # Initialize GLUT
     pygame.init()
+    # Center the window
+    os.environ['SDL_VIDEO_WINDOW_POS'] = "%d,%d" % (250, 20)
     display = (anchopantalla, altopantalla)
     pygame.display.set_mode(display, OPENGL)
     inicializacion()
