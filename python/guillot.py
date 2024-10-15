@@ -207,7 +207,10 @@ def mostrar():
     glColor3f(grisClaro.get_r(), grisClaro.get_g(), grisClaro.get_b())
     edificio.dibujarCubo(edificio.get_alto(), edificio.get_ancho(),
                                   edificio.get_largo())
-    puerta = PrismaRectangular(0.35, 0.25, 0.45)
+
+    glColor3f(rojo.get_r(), rojo.get_g(), rojo.get_b())
+    puerta = PrismaRectangular(0.35, 0.15, 0.05)
+    puerta.dibujarCubo(puerta.get_alto(), puerta.get_ancho(), puerta.get_largo())
     glFlush()
 
 
