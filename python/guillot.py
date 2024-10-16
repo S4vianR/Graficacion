@@ -60,7 +60,7 @@ cafeOscuro = Color(0.3607, 0.2509, 0.05)
 boneWhite = Color(0.9764, 0.9647, 0.9333)
 eggShell = Color(0.9411, 0.9176, 0.8392)
 burntUmber = Color(0.44, 0.1490, 0.0549)
-azure = Color(0.9411,1,1)
+azure = Color(0.9411, 1, 1)
 lightBlue = Color(0.8009, 0.8470, 0.9019)
 
 
@@ -122,6 +122,15 @@ class PrismaRectangular:
     def __init__(self, alto, ancho, largo):
         self.alto = alto
         self.ancho = ancho
+        self.largo = largo
+
+    def set_alto(self, alto):
+        self.alto = alto
+
+    def set_ancho(self, ancho):
+        self.ancho = ancho
+
+    def set_largo(self, largo):
         self.largo = largo
 
     def get_alto(self):
@@ -214,10 +223,12 @@ def mostrar():
     glRotatef(rot_z, 0, 0, 1)
     glTranslatef(rot_cam_x, rot_cam_y, 0)
 
+    # planoCartesiano()
+
     #######################
     # Dibujar un edificio #
     #######################
-    edificio = PrismaRectangular(0.5, 0.75, 1.5)
+    edificio = PrismaRectangular(0.5, 1, 1.5)
     glColor3f(boneWhite.get_r(), boneWhite.get_g(), boneWhite.get_b())
     edificio.dibujarPrisma(edificio.get_alto(), edificio.get_ancho(), edificio.get_largo())
 
@@ -228,7 +239,7 @@ def mostrar():
     # Movimiento del techo
     glTranslatef(0.0, 0.5, 0.0)
     glColor3f(eggShell.get_r(), eggShell.get_g(), eggShell.get_b())
-    techo = PrismaRectangular(0.1, 0.90, 1.8)
+    techo = PrismaRectangular(0.1, 1.3, 1.8)
     techo.dibujarPrisma(techo.get_alto(), techo.get_ancho(), techo.get_largo())
     glPopMatrix()
 
@@ -236,10 +247,66 @@ def mostrar():
     # Adornos de los lados del techo #
     ##################################
     glPushMatrix()
-    # Mover los adornos a la posición correcta
-    glTranslatef(0.0, 0.5, 0.0)
     glColor3f(burntUmber.get_r(), burntUmber.get_g(), burntUmber.get_b())
-    adorno = PrismaRectangular(0.1, 0.1, 0.1)
+    adorno = PrismaRectangular(0.08, 0.03, 0.03)
+
+    ## Adornos de la parte trasera del techo ##
+
+    # Mover los adornos a la posición correcta
+    glTranslatef(0.0, 0.50, -1.84)
+    adorno.dibujarPrisma(adorno.get_alto(), adorno.get_ancho(), adorno.get_largo())
+    # Mover los adornos a la posición correcta
+    glTranslatef(0.3, 0.00, 0.0)
+    adorno.dibujarPrisma(adorno.get_alto(), adorno.get_ancho(), adorno.get_largo())
+    # Mover los adornos a la posición correcta
+    glTranslatef(0.3, 0.00, 0.0)
+    adorno.dibujarPrisma(adorno.get_alto(), adorno.get_ancho(), adorno.get_largo())
+    # Mover los adornos a la posición correcta
+    glTranslatef(-0.9, 0.00, 0.0)
+    adorno.dibujarPrisma(adorno.get_alto(), adorno.get_ancho(), adorno.get_largo())
+    # Mover los adornos a la posición correcta
+    glTranslatef(-0.3, 0.00, 0.0)
+    adorno.dibujarPrisma(adorno.get_alto(), adorno.get_ancho(), adorno.get_largo())
+
+    ## Adornos de la parte lateral izquierda del techo ##
+
+    # Mover los adornos a la posición correcta
+    glTranslatef(-0.73, 0.0, 0.5)
+    adorno.dibujarPrisma(adorno.get_alto(), adorno.get_ancho(), adorno.get_largo())
+    # Mover los adornos a la posición correcta
+    glTranslatef(0.0, 0.0, 0.5)
+    adorno.dibujarPrisma(adorno.get_alto(), adorno.get_ancho(), adorno.get_largo())
+    # Mover los adornos a la posición correcta
+    glTranslatef(0.0, 0.0, 0.5)
+    adorno.dibujarPrisma(adorno.get_alto(), adorno.get_ancho(), adorno.get_largo())
+    # Mover los adornos a la posición correcta
+    glTranslatef(0.0, 0.0, 0.5)
+    adorno.dibujarPrisma(adorno.get_alto(), adorno.get_ancho(), adorno.get_largo())
+    # Mover los adornos a la posición correcta
+    glTranslatef(0.0, 0.0, 0.5)
+    adorno.dibujarPrisma(adorno.get_alto(), adorno.get_ancho(), adorno.get_largo())
+    # Mover los adornos a la posición correcta
+    glTranslatef(0.0, 0.0, 0.5)
+    adorno.dibujarPrisma(adorno.get_alto(), adorno.get_ancho(), adorno.get_largo())
+
+    ## Adornos de la parte lateral derecha del techo ##
+    # Mover los adornos a la posición correcta
+    glTranslatef(2.65, 0.0, 0.0)
+    adorno.dibujarPrisma(adorno.get_alto(), adorno.get_ancho(), adorno.get_largo())
+    # Mover los adornos a la posición correcta
+    glTranslatef(0.0, 0.0, -0.5)
+    adorno.dibujarPrisma(adorno.get_alto(), adorno.get_ancho(), adorno.get_largo())
+    # Mover los adornos a la posición correcta
+    glTranslatef(0.0, 0.0, -0.5)
+    adorno.dibujarPrisma(adorno.get_alto(), adorno.get_ancho(), adorno.get_largo())
+    # Mover los adornos a la posición correcta
+    glTranslatef(0.0, 0.0, -0.5)
+    adorno.dibujarPrisma(adorno.get_alto(), adorno.get_ancho(), adorno.get_largo())
+    # Mover los adornos a la posición correcta
+    glTranslatef(0.0, 0.0, -0.5)
+    adorno.dibujarPrisma(adorno.get_alto(), adorno.get_ancho(), adorno.get_largo())
+    # Mover los adornos a la posición correcta
+    glTranslatef(0.0, 0.0, -0.5)
     adorno.dibujarPrisma(adorno.get_alto(), adorno.get_ancho(), adorno.get_largo())
     glPopMatrix()
 
@@ -250,11 +317,9 @@ def mostrar():
     # Movimiento del piso
     glTranslatef(0.0, -0.55, 0.0)
     glColor3f(eggShell.get_r(), eggShell.get_g(), eggShell.get_b())
-    piso = PrismaRectangular(0.05, 0.75, 1.5)
+    piso = PrismaRectangular(0.05, 1, 1.5)
     piso.dibujarPrisma(piso.get_alto(), piso.get_ancho(), piso.get_largo())
     glPopMatrix()
-
-
 
     ########################################################################
     # Dibujar la estructura frontal para el edificio que incluye la puerta #
@@ -279,10 +344,13 @@ def mostrar():
     # Mover la puerta a la posición correcta
     glTranslatef(1.72, -0.35, 0.35)
     puerta.dibujarPrisma(puerta.get_alto(), puerta.get_ancho(), puerta.get_largo())
+    # Mover la puerta a la posición correcta
+    glTranslatef(0, 0, -0.70)
+    puerta.dibujarPrisma(puerta.get_alto(), puerta.get_ancho(), puerta.get_largo())
 
     ## Puerta de la entrada trasera
     # Mover la puerta a la posición correcta
-    glTranslatef(-2.75, 0, 0.42)
+    glTranslatef(-2.65, 0.0, 1.36)
     puerta.dibujarPrisma(puerta.get_alto(), puerta.get_ancho(), puerta.get_largo())
     glPopMatrix()
 
@@ -299,10 +367,13 @@ def mostrar():
     # Mover la ventana a la posición correcta
     glTranslatef(1.72, -0.35, 0.36)
     ventanaPuerta.dibujarPrisma(ventanaPuerta.get_alto(), ventanaPuerta.get_ancho(), ventanaPuerta.get_largo())
+    # Mover la ventana a la posición correcta
+    glTranslatef(0, 0.0, -0.72)
+    ventanaPuerta.dibujarPrisma(ventanaPuerta.get_alto(), ventanaPuerta.get_ancho(), ventanaPuerta.get_largo())
 
     ## Ventana de la puerta trasera
     # Mover la ventana a la posición correcta
-    glTranslatef(-2.75, 0, 0.42)
+    glTranslatef(-2.65, -0.0, 1.38)
     ventanaPuerta.dibujarPrisma(ventanaPuerta.get_alto(), ventanaPuerta.get_ancho(), ventanaPuerta.get_largo())
     glPopMatrix()
 
@@ -312,14 +383,53 @@ def mostrar():
     glPushMatrix()
     # Rotar la ventana 90 grados en el eye Y
     glRotatef(-90, 0, 1, 0)
-    # Mover la ventana a la posición correcta
-    glTranslatef(0.8, 0.25, 0.76)
     glColor3f(lightBlue.get_r(), lightBlue.get_g(), lightBlue.get_b())
-    ventanasLadoIzquierdo = PrismaRectangular(0.12, 0.40, 0.01)
-    ventanasLadoIzquierdo.dibujarPrisma(ventanasLadoIzquierdo.get_alto(), ventanasLadoIzquierdo.get_ancho(), ventanasLadoIzquierdo.get_largo())
-    glTranslatef(-1, 0.0, 0.0)
-    ventanasLadoIzquierdo.dibujarPrisma(ventanasLadoIzquierdo.get_alto(), ventanasLadoIzquierdo.get_ancho(),
-                                        ventanasLadoIzquierdo.get_largo())
+    ventanasLados = PrismaRectangular(0.12, 0.50, 0.01)
+
+    # Mover la ventana a la posición correcta
+    ventanasLadosEntrada = PrismaRectangular(0.12, 1.4, 0.01)
+    glTranslatef(0.1, 0.20, 1)
+    ventanasLadosEntrada.dibujarPrisma(ventanasLadosEntrada.get_alto(), ventanasLadosEntrada.get_ancho(),
+                                ventanasLadosEntrada.get_largo())
+
+    glTranslatef(-0.3, 0.0, -2.00)
+    ventanasLados.dibujarPrisma(ventanasLados.get_alto(), ventanasLados.get_ancho(),
+                                ventanasLados.get_largo())
+
+    glTranslatef(1.2, 0.0, 0.0)
+    ventanasLados.dibujarPrisma(ventanasLados.get_alto(), ventanasLados.get_ancho(),
+                                ventanasLados.get_largo())
+    glPopMatrix()
+
+    #######################
+    # Cajones en la pared #
+    #######################
+    glPushMatrix()
+    # glColor3f(boneWhite.get_r(), boneWhite.get_g(), boneWhite.get_b())
+    glColor3f(eggShell.get_r(), eggShell.get_g(), eggShell.get_b())
+    cajonPared = PrismaRectangular(0.3, 0.05, 0.5)
+
+    # Mover el cajón a un lugar correcto en la pared
+    glTranslatef(-1, -0.3, -0.2)
+    cajonPared.dibujarPrisma(cajonPared.get_alto(), cajonPared.get_ancho(), cajonPared.get_largo())
+
+    # Mover el cajón a un lugar correcto en la pared
+    glTranslatef(0, 0, 1.2)
+    cajonPared.dibujarPrisma(cajonPared.get_alto(), cajonPared.get_ancho(), cajonPared.get_largo())
+
+    glTranslatef(2.05, 0.0, 0.0)
+    cajonPared.dibujarPrisma(cajonPared.get_alto(), cajonPared.get_ancho(), cajonPared.get_largo())
+
+    glTranslatef(0.0, 0.0, -1.2)
+    cajonPared.dibujarPrisma(cajonPared.get_alto(), cajonPared.get_ancho(), cajonPared.get_largo())
+
+    cajonPared1 = PrismaRectangular(0.5, 0.05, 0.25)
+    glTranslatef(0.0, 0.2, -1.05)
+    cajonPared1.dibujarPrisma(cajonPared1.get_alto(), cajonPared1.get_ancho(), cajonPared1.get_largo())
+
+    cajonPared2 = PrismaRectangular(0.5, 0.02, 0.15)
+    glTranslatef(-2.073, 0, -0.1)
+    cajonPared2.dibujarPrisma(cajonPared2.get_alto(), cajonPared2.get_ancho(), cajonPared2.get_largo())
     glPopMatrix()
     glFlush()
 
@@ -359,13 +469,13 @@ if __name__ == '__main__':
                 #    rot_cam_x = 0
                 #    rot_cam_y = 0
                 #    rot_cam_z = 0
-                #if event.key == pygame.K_LEFT:
+                # if event.key == pygame.K_LEFT:
                 #    rot_cam_x += velocidad
-                #if event.key == pygame.K_RIGHT:
+                # if event.key == pygame.K_RIGHT:
                 #    rot_cam_x -= velocidad
-                #if event.key == pygame.K_UP:
+                # if event.key == pygame.K_UP:
                 #    rot_cam_y += velocidad
-                #if event.key == pygame.K_DOWN:
+                # if event.key == pygame.K_DOWN:
                 #    rot_cam_y -= velocidad
             elif event.type == pygame.KEYUP:
                 if event.key in keys:
