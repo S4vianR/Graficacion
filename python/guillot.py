@@ -1,4 +1,6 @@
 import pygame
+import math
+import numpy as np
 from PyOpenGLtoolbox import *
 from OpenGL import *
 
@@ -390,7 +392,7 @@ def mostrar():
     ventanasLadosEntrada = PrismaRectangular(0.12, 1.4, 0.01)
     glTranslatef(0.1, 0.20, 1)
     ventanasLadosEntrada.dibujarPrisma(ventanasLadosEntrada.get_alto(), ventanasLadosEntrada.get_ancho(),
-                                ventanasLadosEntrada.get_largo())
+                                       ventanasLadosEntrada.get_largo())
 
     glTranslatef(-0.3, 0.0, -2.00)
     ventanasLados.dibujarPrisma(ventanasLados.get_alto(), ventanasLados.get_ancho(),
@@ -431,11 +433,43 @@ def mostrar():
     glTranslatef(-2.073, 0, -0.1)
     cajonPared2.dibujarPrisma(cajonPared2.get_alto(), cajonPared2.get_ancho(), cajonPared2.get_largo())
     glPopMatrix()
+
+    #######################
+    # Ventana entre cubos #
+    #######################
+    glPushMatrix()
+    glColor3f(lightBlue.get_r(), lightBlue.get_g(), lightBlue.get_b())
+    ventanasCubos = PrismaRectangular(0.25, 0.01, 0.1)
+    glTranslatef(-1, -0.25, 0.40)
+    ventanasCubos.dibujarPrisma(ventanasCubos.get_alto(), ventanasCubos.get_ancho(), ventanasCubos.get_largo())
+    glTranslatef(2, 0, 0)
+    ventanasCubos.dibujarPrisma(ventanasCubos.get_alto(), ventanasCubos.get_ancho(), ventanasCubos.get_largo())
+    glPopMatrix()
+
+    ###################
+    # Ventana trasera #
+    ###################
+    glPushMatrix()
+    glColor3f(lightBlue.get_r(), lightBlue.get_g(), lightBlue.get_b())
+    ventanaTrasera = PrismaRectangular(0.12, 1, 0.01)
+    glTranslatef(0, 0.3, -1.51)
+    ventanaTrasera.dibujarPrisma(ventanaTrasera.get_alto(), ventanaTrasera.get_ancho(), ventanaTrasera.get_largo())
+    glPopMatrix()
+
+    ##############################
+    # Piso de toda la estructura #
+    ##############################
+    glPushMatrix()
+    glColor3f(gris.get_r(),gris.get_g(),gris.get_b())
+    glTranslatef(0,-0.6,0)
+    concreto = PrismaRectangular(0.005, 3, 3)
+    concreto.dibujarPrisma(concreto.get_alto(),concreto.get_ancho(),concreto.get_largo())
+    glPopMatrix()
     glFlush()
 
 
 def inicializacion():
-    glClearColor(gris.get_r(), gris.get_g(), gris.get_b(), 1)
+    glClearColor(grisClaro.get_r(), grisClaro.get_g(), grisClaro.get_b(), 1)
     glEnable(GL_DEPTH_TEST)
     glMatrixMode(GL_PROJECTION)
     glLoadIdentity()

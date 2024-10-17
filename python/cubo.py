@@ -141,13 +141,13 @@ def mostrar():
 
     # Dibujar el plano cartesiano
     glColor3f(azul.get_r(), azul.get_g(), azul.get_b())
-    # planoCartesiano()
 
     # Rotar el cubo
     glRotatef(rot_x, 1, 0, 0)
     glRotatef(rot_y, 0, 1, 0)
     glRotatef(rot_z, 0, 0, 1)
 
+    planoCartesiano()
     # Dibujar un cubo
     glColor3f(rojo.get_r(), rojo.get_g(), rojo.get_b())
     cubo = Cubo(0.5)
