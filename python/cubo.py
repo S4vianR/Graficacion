@@ -165,7 +165,6 @@ def inicializacion():
 
 
 if __name__ == '__main__':
-    glutInit()  # Initialize GLUT
     pygame.init()
     display = (anchopantalla, altopantalla)
     pygame.display.set_mode(display, OPENGL)
