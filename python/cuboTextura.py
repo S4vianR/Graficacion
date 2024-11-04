@@ -5,9 +5,9 @@ from OpenGL.GLUT import *
 from pygame.locals import *
 
 # Dimensiones de la pantalla
-anchopantalla = 1200
-altopantalla = 800
-profundidad = 800
+anchopantalla = 1400
+altopantalla = 1000
+profundidad = 1000
 
 # Variables para la rotación
 rot_x = 0
@@ -15,7 +15,10 @@ rot_y = 0
 rot_z = 0
 
 # Variables para la velocidad
-velocidad = 2
+velocidad = 1.5
+
+# Variable para controlar la animación
+animar = False
 
 # Diccionario para rastrear el estado de las teclas
 keys = {
@@ -196,7 +199,7 @@ def mostrar():
 
     # Dibujar un cubo
     cubo = Cubo(0.5)
-    glTranslatef(-2, 0, 0)
+    glTranslatef(-1, 0, 0)
     cubo.dibujarCubo(cubo.get_lado())
 
     # Cargar textura
@@ -206,7 +209,7 @@ def mostrar():
 
     # Dibujar otro cubo
     cubo2 = Cubo(0.5)
-    glTranslatef(4, 0, 0)
+    glTranslatef(2, 0, 0)
     cubo2.dibujarCubo(cubo2.get_lado())
 
     glFlush()
@@ -227,37 +230,51 @@ if __name__ == '__main__':
     pygame.display.set_mode(display, OPENGL)
     inicializacion()
 
-    while True:
-        for event in pygame.event.get():
-            if event.type == pygame.QUIT:
-                pygame.quit()
-                quit()
-            elif event.type == pygame.KEYDOWN:
-                if event.key in keys:
-                    keys[event.key] = True
-                # Reset all rotations
-                elif event.key == pygame.K_c:
-                    rot_x = 0
-                    rot_y = 0
-                    rot_z = 0
-            elif event.type == pygame.KEYUP:
-                if event.key in keys:
-                    keys[event.key] = False
+    try:
+        while True:
+            for event in pygame.event.get():
+                if event.type == pygame.QUIT:
+                    pygame.quit()
+                    quit()
+                elif event.type == pygame.KEYDOWN:
+                    if event.key in keys:
+                        keys[event.key] = True
+                    # Reset all rotations
+                    elif event.key == pygame.K_c:
+                        rot_x = 0
+                        rot_y = 0
+                        rot_z = 0
+                    # Toggle animation
+                    elif event.key == pygame.K_SPACE:
+                        animar = not animar
+                elif event.type == pygame.KEYUP:
+                    if event.key in keys:
+                        keys[event.key] = False
 
-        # Aplicar rotaciones basadas en el estado de las teclas
-        if keys[pygame.K_w]:
-            rot_x -= velocidad
-        if keys[pygame.K_s]:
-            rot_x += velocidad
-        if keys[pygame.K_a]:
-            rot_y -= velocidad
-        if keys[pygame.K_d]:
-            rot_y += velocidad
-        if keys[pygame.K_q]:
-            rot_z += velocidad
-        if keys[pygame.K_e]:
-            rot_z -= velocidad
+            # Aplicar rotaciones basadas en el estado de las teclas
+            if keys[pygame.K_w]:
+                rot_x -= velocidad
+            if keys[pygame.K_s]:
+                rot_x += velocidad
+            if keys[pygame.K_a]:
+                rot_y -= velocidad
+            if keys[pygame.K_d]:
+                rot_y += velocidad
+            if keys[pygame.K_q]:
+                rot_z += velocidad
+            if keys[pygame.K_e]:
+                rot_z -= velocidad
 
-        mostrar()
-        pygame.display.flip()
-        pygame.time.wait(10)
+            # Animar rotaciones si está activado
+            if animar:
+                rot_x += 1
+                rot_y += 1
+                rot_z += 1
+
+            mostrar()
+            pygame.display.flip()
+            pygame.time.wait(10)
+
+    except KeyboardInterrupt:
+        pygame.quit()
+        quit()
