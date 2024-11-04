@@ -1,4 +1,4 @@
-# Install script for directory: /home/reuben/CLionProjects/plantillaBasica
+# Install script for directory: /home/reuben/Dev/Graficacion/cpp/plantillaBasica
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/reuben/CLionProjects/plantillaBasica/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/reuben/Dev/Graficacion/cpp/plantillaBasica/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
